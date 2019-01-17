@@ -1,3 +1,33 @@
-<p>
-  need works!
-</p>
+<router-outlet></router-outlet>
+<div class="container" *ngIf="!cateEquips">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>NUMBER</th>
+          <th>ORG</th>
+          <th>SUBMITER</th>
+          <th>PRINCIPAL</th>
+          <th>EQUIP</th>
+          <th>EQUIP NUM</th>
+          <th>STATE</th>
+          <th>ISPASS</th>
+          <th>SUPPLIER</th>
+          <th>SUBMIT DATE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of needs;let key=index;" data-toggle="modal" data-target="#myModal">
+          <td>{{key+1}}</td>
+          <td>{{item.orgname}}</td>
+          <td>{{item.submiter}}</td>
+          <td>{{item.orgprincipal}}</td>
+          <td>{{item.equipid}}</td>
+          <td>{{item.equipnum}}</td>
+          <td>{{item.equipdstate}}</td>
+          <td>{{item.ispass}}</td>
+          <td>{{item.supplier}}</td>
+          <td>{{item.submitdate}}</td>
+        </tr>      
+      </tbody>
+    </table>
+  </div>

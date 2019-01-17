@@ -1,3 +1,5 @@
+import { OrderService } from './service/order.service';
+import { NeedService } from './service/need.service';
 import { SupplierService } from './service/supplier.service';
 import { CategoryService } from './service/category.service';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
@@ -35,7 +37,9 @@ import { CateEquipComponent } from './cate-equip/cate-equip.component';
   providers: [
     EquipService,
     CategoryService,
-    SupplierService
+    SupplierService,
+    NeedService,
+    OrderService
   ],
   bootstrap: [AppComponent]
 })
