@@ -10,7 +10,7 @@ export class SupplierComponent implements OnInit {
 
   suppliers: any
   constructor(public supplierservice: SupplierService) {
-    this.suppliers = this.supplierservice.getAllEquip()
+    this.suppliers = this.supplierservice.getAllSupplier()
 
   }
 
@@ -21,7 +21,7 @@ export class SupplierComponent implements OnInit {
   }
 
   getAllSupplier() {
-    this.suppliers = this.supplierservice.getAllEquip()
+    this.suppliers = this.supplierservice.getAllSupplier()
     console.log(this.suppliers)
   }
 }

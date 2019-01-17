@@ -10,7 +10,7 @@ export class SupplierService {
 
   constructor(public http: HttpClient) { }
  
-  getAllEquip() {
+  getAllSupplier() {
     this.http.get('http://localhost:8080/supplier/all').subscribe((data) => {
       this.suppliers = data
     })

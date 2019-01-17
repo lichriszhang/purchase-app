@@ -11,18 +11,17 @@ export class CateEquipComponent implements OnInit {
 
   cateEquips: any
 
-  constructor(public equipservice: EquipService, public routeInfo: ActivatedRoute) { 
+  constructor(public equipservice: EquipService, public routeInfo: ActivatedRoute) {
+    this.getEquipByCategory()
   }
 
   ngOnInit() {
-    this.cateEquips = this.getEquipByCategory();
+      this.getEquipByCategory()
   }
   getEquipByCategory() {
     setTimeout(() => {
       this.routeInfo.params.subscribe((param: Params) => {
-        console.log(param["cateId"])
         this.cateEquips = this.equipservice.getEquipByCategory(param["cateId"])
-        return this.cateEquips
       })
     }, 1000);
   }
