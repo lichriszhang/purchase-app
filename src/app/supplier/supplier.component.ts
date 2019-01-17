@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SupplierService } from '../service/supplier.service';
 
 @Component({
   selector: 'app-supplier',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SupplierComponent implements OnInit {
 
-  constructor() { }
+  suppliers: any
+  constructor(public supplierservice: SupplierService) {
+    this.suppliers = this.supplierservice.getAllEquip()
 
-  ngOnInit() {
   }
 
+  ngOnInit() {
+    setTimeout(() => {
+      this.getAllSupplier()
+    }, 1000);
+  }
+
+  getAllSupplier() {
+    this.suppliers = this.supplierservice.getAllEquip()
+    console.log(this.suppliers)
+  }
 }

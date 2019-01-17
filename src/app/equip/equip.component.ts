@@ -1,5 +1,6 @@
 import { EquipService } from './../service/equip.service';
 import { Component, OnInit } from '@angular/core';
+import{ActivatedRoute,Params} from  '@angular/router';
 
 @Component({
   selector: 'app-equip',
@@ -10,9 +11,8 @@ export class EquipComponent implements OnInit {
 
   equip: any
 
-  constructor(public equipservice: EquipService) {
+  constructor(public equipservice: EquipService, public routeInfo: ActivatedRoute) {
     this.equip = this.equipservice.getAllEquip()
-
   }
 
   ngOnInit() {
@@ -23,7 +23,13 @@ export class EquipComponent implements OnInit {
 
   getAllEquip() {
     this.equip = this.equipservice.getAllEquip()
-    console.log(this.equip)
   }
 
+  getEquipByCategory() {
+    setTimeout(() => {
+      this.routeInfo.params.subscribe((param: Params) => {
+        console.log(param)
+      })
+    }, 1000);
+  }
 }

@@ -11,10 +11,16 @@ export class EquipService {
   curColor: string
 
   constructor(public http: HttpClient) { }
-
  
   getAllEquip() {
     this.http.get('http://localhost:8080/equip/all').subscribe((data) => {
+      this.equipResult = data
+    })
+    return this.equipResult
+  }
+
+  getEquipByCategory(cateId: string) {
+    this.http.get('http://localhost:8080/equip/category/' + cateId).subscribe((data) => {
       this.equipResult = data
     })
     return this.equipResult

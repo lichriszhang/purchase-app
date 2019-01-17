@@ -1,3 +1,30 @@
-<p>
-  supplier works!
-</p>
+<div class="container">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>NUMBER</th>
+          <th>NAME</th>
+          <th>ADSRESS</th>
+          <th>CONTACTS</th>
+          <th>TELEPHONE</th>
+          <th>FAX</th>
+          <th>PHONE</th>
+          <th>MAIL</th>
+          <th>EQUIP</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of suppliers;let key=index;">
+          <td>{{key+1}}</td>
+          <td>{{item.suppliername}}</td>
+          <td>{{item.supplieradd}}</td>
+          <td>{{item.suppliercontacter}}</td>
+          <td>{{item.suppliertele}}</td>
+          <td>{{item.supplierfax}}</td>
+          <td>{{item.supplierphone}}</td>
+          <td>{{item.suppliermail}}</td>
+          <td>{{item.supplierequipcategory}}</td>
+        </tr>      
+      </tbody>
+    </table>
+  </div>

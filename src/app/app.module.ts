@@ -13,6 +13,7 @@ import { CategoryComponent } from './category/category.component';
 import { SupplierComponent } from './supplier/supplier.component';
 import { NeedComponent } from './need/need.component';
 import { OrderComponent } from './order/order.component';
+import { CateEquipComponent } from './cate-equip/cate-equip.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { OrderComponent } from './order/order.component';
     CategoryComponent,
     SupplierComponent,
     NeedComponent,
-    OrderComponent
+    OrderComponent,
+    CateEquipComponent
   ],
   imports: [
     BrowserModule,

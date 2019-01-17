@@ -1,3 +1,5 @@
+import { AppComponent } from './app.component';
+import { CateEquipComponent } from './cate-equip/cate-equip.component';
 import { OrderComponent } from './order/order.component';
 import { NeedComponent } from './need/need.component';
 import { SupplierComponent } from './supplier/supplier.component';
@@ -7,7 +9,11 @@ import { EquipComponent } from './equip/equip.component';
 
 const routes: Routes = [
   {
-    path: 'equip', component: EquipComponent
+    path: 'equip', component: EquipComponent, children: [
+      {
+        path: ':cateId', component: CateEquipComponent
+      }
+    ]
   },
   {
     path: 'supplier', component: SupplierComponent

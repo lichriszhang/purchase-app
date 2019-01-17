@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,14 @@ import { Injectable } from '@angular/core';
 })
 export class SupplierService {
 
-  constructor() { }
+  suppliers: any
+
+  constructor(public http: HttpClient) { }
+ 
+  getAllEquip() {
+    this.http.get('http://localhost:8080/supplier/all').subscribe((data) => {
+      this.suppliers = data
+    })
+    return this.suppliers
+  }
 }
