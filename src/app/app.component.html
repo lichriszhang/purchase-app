@@ -1,0 +1,26 @@
+<nav class="navbar bg-dark navbar-dark " >
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" (click)="getAllCategory()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" [routerLink]="[ '/equip' ]" routerLinkActive="active">EQUIPMENT</a>
+  <a class="navbar-brand" [routerLink]="[ '/supplier' ]" routerLinkActive="active">SUPPLIER</a>
+  <a class="navbar-brand" [routerLink]="[ '/need' ]" routerLinkActive="active">NEED</a>
+  <a class="navbar-brand" [routerLink]="[ '/order' ]" routerLinkActive="active">ORDER</a>
+  <form class="form-inline">
+    <input class="form-control" type="text" placeholder="Search">
+    <button class="btn btn-success" type="button">Search</button>
+  </form>
+</nav>
+<div class="row">
+    <div class="col-md-2">
+        <nav class="navbar bg-dark navbar-dark collapse navbar-collapse bg-dark" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item" *ngFor="let item of category">
+              <a class="nav-link" href="#">{{item.equipcategoryname}}</a>
+            </li>
+          </ul>
+        </nav>
+    </div>
+    <div class="col-md-10"></div>
+  </div>
+<router-outlet></router-outlet>
