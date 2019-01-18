@@ -7,8 +7,8 @@
   <a class="navbar-brand" [routerLink]="[ '/need' ]" routerLinkActive="active">NEED</a>
   <a class="navbar-brand" [routerLink]="[ '/order' ]" routerLinkActive="active">ORDER</a>
   <form class="form-inline">
-    <input class="form-control" type="text" placeholder="Search">
-    <button class="btn btn-success" type="button">Search</button>
+    <input class="form-control" type="text" placeholder="Equipment" [(ngModel)]="equipName" name="equipName">
+    <button class="btn btn-success" type="button" (click)="searchHandleClick()" [routerLink]="[ '/name', equipName ]">Search</button>
   </form>
 </nav>
 <div class="row">

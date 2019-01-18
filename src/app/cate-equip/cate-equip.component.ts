@@ -10,19 +10,44 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class CateEquipComponent implements OnInit {
 
   cateEquips: any
-
+  isShow: any
   constructor(public equipservice: EquipService, public routeInfo: ActivatedRoute) {
-    this.getEquipByCategory()
+    this.routeInfo.params.subscribe((param: Params) => {
+      if(param["cateId"]) {
+        this.getEquipByCategory()
+      } else{
+        this.getEquipByName();
+      }
+    })
   }
 
   ngOnInit() {
-      this.getEquipByCategory()
+    this.routeInfo.params.subscribe((param: Params) => {
+      if(param["cateId"]) {
+        this.getEquipByCategory()
+      } else{
+        this.getEquipByName();
+      }
+    })
   }
   getEquipByCategory() {
     setTimeout(() => {
       this.routeInfo.params.subscribe((param: Params) => {
         this.cateEquips = this.equipservice.getEquipByCategory(param["cateId"])
+        if(this.cateEquips == undefined || this.cateEquips == null || this.cateEquips.length<1) {
+          this.cateEquips = null
+        }
       })
-    }, 1000);
+    }, 100);
+  }
+  getEquipByName() {
+    setTimeout(() => {
+      this.routeInfo.params.subscribe((param: Params) => {
+        this.cateEquips = this.equipservice.getEquipByName(param["equipName"])
+        if(this.cateEquips == undefined || this.cateEquips == null || this.cateEquips.length<1) {
+          this.cateEquips = null
+        }
+      })
+    }, 100);
   }
 }

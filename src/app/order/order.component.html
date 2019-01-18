@@ -4,29 +4,21 @@
       <thead>
         <tr>
           <th>NUMBER</th>
-          <th>ORG</th>
-          <th>SUBMITER</th>
-          <th>PRINCIPAL</th>
-          <th>EQUIP</th>
-          <th>EQUIP NUM</th>
-          <th>STATE</th>
-          <th>ISPASS</th>
           <th>SUPPLIER</th>
-          <th>SUBMIT DATE</th>
+          <th>ORDERER</th>
+          <th>ORDERTIME</th>
+          <th>ARRIVAL TIME</th>
+          <th>EQUIPS</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let item of orders;let key=index;" data-toggle="modal" data-target="#myModal">
           <td>{{key+1}}</td>
-          <td>{{item.orgname}}</td>
-          <td>{{item.submiter}}</td>
-          <td>{{item.orgprincipal}}</td>
-          <td>{{item.equipid}}</td>
-          <td>{{item.equipnum}}</td>
-          <td>{{item.equipdstate}}</td>
-          <td>{{item.ispass}}</td>
           <td>{{item.supplier}}</td>
-          <td>{{item.submitdate}}</td>
+          <td>{{item.orderpeople}}</td>
+          <td>{{item.ordertime}}</td>
+          <td>{{item.arrivaltime}}</td>
+          <td>{{item.needsids}}</td>
         </tr>      
       </tbody>
     </table>

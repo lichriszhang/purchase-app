@@ -18,11 +18,13 @@ export class EquipComponent implements OnInit {
   ngOnInit() {
     setTimeout(() => {
       this.getAllEquip()
-    }, 1000);
+    }, 100);
   }
 
   getAllEquip() {
       this.equip = this.equipservice.getAllEquip()
   }
+
+  
 
 }

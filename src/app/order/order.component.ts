@@ -16,7 +16,7 @@ export class OrderComponent implements OnInit {
   ngOnInit() {
     setTimeout(() => {
       this.getAllOrders()
-    }, 1000);
+    }, 100);
   }
 
   getAllOrders() {

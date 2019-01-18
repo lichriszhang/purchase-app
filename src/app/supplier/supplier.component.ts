@@ -17,7 +17,7 @@ export class SupplierComponent implements OnInit {
   ngOnInit() {
     setTimeout(() => {
       this.getAllSupplier()
-    }, 1000);
+    }, 100);
   }
 
   getAllSupplier() {

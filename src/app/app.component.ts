@@ -11,8 +11,9 @@ export class AppComponent {
   title = 'purchase-app';
 
   category: any
+  equipName: string
 
-  constructor(public categoryservice: CategoryService) {
+  constructor(public categoryservice: CategoryService, public equipservice: EquipService) {
     this.category = this.categoryservice.getAllCategory()
   }
 
@@ -21,6 +22,9 @@ export class AppComponent {
 
   getAllCategory() {
     this.category = this.categoryservice.getAllCategory()
-    console.log(this.category)
+  }
+
+  searchHandleClick() {
+    this.equipservice.getEquipByName(this.equipName)
   }
 }

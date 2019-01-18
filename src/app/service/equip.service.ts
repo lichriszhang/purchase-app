@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -9,6 +9,8 @@ export class EquipService {
   
   equipResult: any
   curColor: string
+  equips: any
+  equipById: any
 
   constructor(public http: HttpClient) { }
  
@@ -24,5 +26,24 @@ export class EquipService {
       this.equipResult = data
     })
     return this.equipResult
+  }
+  getEquipByName(equipName: string) {
+    
+    const param = new HttpParams().set('equipName', equipName)
+    const httpOptions = {
+      'params': param
+    }
+    console.log(httpOptions)
+    this.http.post('http://localhost:8080/equip/name', {}, httpOptions).subscribe((data) => {
+      this.equips = data
+    })
+    return this.equips
+  }
+
+  getEuqipById(equipId: string) {
+    this.http.get('http://localhost:8080/equip/' + equipId).subscribe((data) => {
+      this.equipById = data
+    })
+    return this.equipById
   }
 }

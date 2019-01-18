@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class NeedService {
 
   needs: any
-
+  needDetail: any
   constructor(public http: HttpClient) { }
  
   getAllNeeds() {
@@ -15,5 +15,11 @@ export class NeedService {
       this.needs = data
     })
     return this.needs
+  }
+  getNeedDetail(needId: string) {
+    this.http.get('http://localhost:8080/needs/' + needId).subscribe((data) => {
+      this.needDetail = data
+    })
+    return this.needDetail
   }
 }
