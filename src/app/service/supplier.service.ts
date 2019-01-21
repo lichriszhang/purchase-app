@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -15,5 +15,15 @@ export class SupplierService {
       this.suppliers = data
     })
     return this.suppliers
+  }
+  removeSupplier(supplierId: string) {
+    const param = new HttpParams()
+    .set('sid', supplierId)
+    const httpOptions = {
+      'params': param
+    }
+    this.http.post('http://localhost:8080/supplier/delete', {}, httpOptions).subscribe((data) => {
+      console.log(data)
+    })
   }
 }

@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./upload.component.scss']
 })
 export class UploadComponent implements OnInit {
-  equip: Object = {
+  equip: any = {
     equipname: '',
     equipspec: '',
     equipmodel: '',
@@ -27,8 +27,11 @@ export class UploadComponent implements OnInit {
   }
 
   addEquip() {
-    console.log(this.file)
-    this.equipservice.addEquipment(this.equip, this.file)
+    if(this.equip.equipname=='' || this.equip.equipnum<1||this.equip.equipnum>10000) {
+      alert('please input necessary value')
+      return
+    }
+    this.equipservice.addEquipment(this.equip)
   }
 
 }

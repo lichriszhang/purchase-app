@@ -1,6 +1,6 @@
 import { EquipService } from './../service/equip.service';
 import { Component, OnInit } from '@angular/core';
-import{ActivatedRoute,Params} from  '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-equip',
@@ -11,7 +11,7 @@ export class EquipComponent implements OnInit {
 
   equip: any
   cateEquips: any
-  
+
   constructor(public equipservice: EquipService) {
     this.getAllEquip()
   }
@@ -23,9 +23,16 @@ export class EquipComponent implements OnInit {
   }
 
   getAllEquip() {
-      this.equip = this.equipservice.getAllEquip()
+    this.equip = this.equipservice.getAllEquip()
+  }
+  removeEquip(equipId: string) {
+    let r = confirm('remove this equipment?')
+    if (r == true) {
+      this.equipservice.removeEquip(equipId)
+      location=location
+    }
   }
 
-  
+
 
 }

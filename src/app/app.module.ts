@@ -1,3 +1,4 @@
+import { UploadComponent } from './upload/upload.component';
 import { OrderService } from './service/order.service';
 import { NeedService } from './service/need.service';
 import { SupplierService } from './service/supplier.service';
@@ -28,6 +29,7 @@ import { NeedDetailComponent } from './need-detail/need-detail.component';
     OrderComponent,
     CateEquipComponent,
     NeedDetailComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,

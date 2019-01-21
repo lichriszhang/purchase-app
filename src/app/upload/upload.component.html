@@ -13,7 +13,7 @@
           <form action="/supplier" method="POST" enctype="multipart/form-data">
             <div class="form-group">
               <label for="equipName">Name:</label>
-              <input type="text" class="form-control" id="equipName" name="equipname" [(ngModel)]="equip.equipname" placeholder="Enter equipName">
+              <input type="text" class="form-control btn-danger" id="equipName" name="equipname" [(ngModel)]="equip.equipname" placeholder="Enter equipName">
             </div>
             <div class="form-group">
               <label for="specific">Specific:</label>
@@ -25,7 +25,8 @@
             </div>
             <div class="form-group">
               <label for="count">Count:</label>
-              <input type="text" class="form-control" id="count" name="equipnum" [(ngModel)]="equip.equipnum" placeholder="Enter count">
+              <input type="text" class="form-control btn-danger" id="count" name="equipnum" [(ngModel)]="equip.equipnum" placeholder="Enter count(only number)" onkeyup="this.value=this.value.replace(/\D/g,'')" 
+              onafterpaste="this.value=this.value.replace(/\D/g,'')">
             </div>
             <div class="form-group">
               <label for="count">Texture:</label>
@@ -55,3 +56,5 @@
     </div>
   </div>
 </div>
+
+

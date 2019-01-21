@@ -4,13 +4,15 @@
         <tr>
           <th>NUMBER</th>
           <th>NAME</th>
-          <th>ADSRESS</th>
+          <th>ADDRESS</th>
           <th>CONTACTS</th>
           <th>TELEPHONE</th>
           <th>FAX</th>
           <th>PHONE</th>
           <th>MAIL</th>
           <th>EQUIP</th>
+          <th [routerLink]="[ '/upload' ]" class="btn btn-outline-info" routerLinkActive="active" data-toggle="modal" data-target="#myModal">Add Supplier
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -24,6 +26,12 @@
           <td>{{item.supplierphone}}</td>
           <td>{{item.suppliermail}}</td>
           <td>{{item.supplierequipcategory}}</td>
+          <td>
+              <div class="btn-group btn-group-sm">
+                <button type="button" class="btn btn-danger" (click)="removeSupplier(item.supplierid)" [routerLink]="[ '/supplier' ]">REMOVE</button><br>
+                <button type="button" class="btn btn-outline-info" [routerLink]="[ '/equip' ]">Update</button><br>
+              </div>
+            </td>
         </tr>      
       </tbody>
     </table>

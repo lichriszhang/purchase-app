@@ -24,4 +24,11 @@ export class SupplierComponent implements OnInit {
     this.suppliers = this.supplierservice.getAllSupplier()
     console.log(this.suppliers)
   }
+  removeSupplier(supplierId: string) {
+    let r = confirm('remove this supplier?')
+    if(r) {
+      this.supplierservice.removeSupplier(supplierId)
+      location=location
+    }
+  }
 }

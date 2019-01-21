@@ -1,28 +1,35 @@
 <router-outlet></router-outlet>
 <div class="container" *ngIf="!cateEquips">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>NUMBER</th>
-          <th>NAME</th>
-          <th>SPECIFIC</th>
-          <th>MODEL</th>
-          <th>TEXTURE</th>
-          <th>COUNT</th>
-          <th>CLASS</th>
-          <button type="button" class="btn btn-light" [routerLink]="[ '/upload' ]" routerLinkActive="active"  data-toggle="modal" data-target="#myModal">upload equip</button>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of equip;let key=index;" data-toggle="modal" data-target="#myModal">
-          <td>{{key+1}}</td>
-          <td>{{item.equipname}}</td>
-          <td>{{item.equipspec}}</td>
-          <td>{{item.equipmodel}}</td>
-          <td>{{item.equiptext}}</td>
-          <td>{{item.equipnum}}</td>
-          <td>{{item.equipcategory}}</td>
-        </tr>      
-      </tbody>
-    </table>
-  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>NUMBER</th>
+        <th>NAME</th>
+        <th>SPECIFIC</th>
+        <th>MODEL</th>
+        <th>TEXTURE</th>
+        <th>COUNT</th>
+        <th>CLASS</th>
+        <th [routerLink]="[ '/upload' ]" class="btn btn-outline-info" routerLinkActive="active" data-toggle="modal" data-target="#myModal">Add Equipment
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of equip;let key=index;" data-toggle="modal" data-target="#myModal">
+        <td>{{key+1}}</td>
+        <td>{{item.equipname}}</td>
+        <td>{{item.equipspec}}</td>
+        <td>{{item.equipmodel}}</td>
+        <td>{{item.equiptext}}</td>
+        <td>{{item.equipnum}}</td>
+        <td>{{item.equipcategory}}</td>
+        <td>
+          <div class="btn-group btn-group-sm">
+            <button type="button" class="btn btn-danger" (click)="removeEquip(item.equipid)" [routerLink]="[ '/equip' ]">REMOVE</button><br>
+            <button type="button" class="btn btn-outline-info" [routerLink]="[ '/equip' ]">Update</button><br>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
