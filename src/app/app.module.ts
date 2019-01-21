@@ -27,7 +27,7 @@ import { NeedDetailComponent } from './need-detail/need-detail.component';
     NeedComponent,
     OrderComponent,
     CateEquipComponent,
-    NeedDetailComponent
+    NeedDetailComponent,
   ],
   imports: [
     BrowserModule,

@@ -46,4 +46,21 @@ export class EquipService {
     })
     return this.equipById
   }
+
+  addEquipment(equipment: any, file: any) {
+    const param = new HttpParams()
+    .set('equipname', equipment.equipname)
+    .set('equiptext', equipment.equiptext)
+    .set('equipspec', equipment.equipspec)
+    .set('equipmodel', equipment.equipmodel)
+    .set('equipnum', equipment.equipnum)
+    .set('equipcategory', equipment.equipcategory)
+    .set('file', file)
+    const httpOptions = {
+      'params': param
+    }
+    this.http.post('http://localhost:8080/equip/add', {}, httpOptions).subscribe((data) => {
+      console.log(data)
+    })
+  }
 }

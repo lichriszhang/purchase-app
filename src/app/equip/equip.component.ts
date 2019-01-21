@@ -11,6 +11,7 @@ export class EquipComponent implements OnInit {
 
   equip: any
   cateEquips: any
+  
   constructor(public equipservice: EquipService) {
     this.getAllEquip()
   }

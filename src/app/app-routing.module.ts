@@ -1,3 +1,4 @@
+import { UploadComponent } from './upload/upload.component';
 import { NeedDetailComponent } from './need-detail/need-detail.component';
 import { CateEquipComponent } from './cate-equip/cate-equip.component';
 import { OrderComponent } from './order/order.component';
@@ -29,6 +30,9 @@ const routes: Routes = [
   },
   {
     path: 'order', component: OrderComponent
+  },
+  {
+    path: 'upload', component: UploadComponent
   }
 ];
 
