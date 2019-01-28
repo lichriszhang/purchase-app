@@ -16,7 +16,11 @@ const routes: Routes = [
     path: 'name/:equipName', component: CateEquipComponent
   },
   {
-    path: 'equip', component: EquipComponent
+    path: 'equip', component: EquipComponent, children: [
+      {
+        path: 'update/:equipId', component: UploadComponent
+      }
+    ]
   },
   {
     path: 'supplier', component: SupplierComponent

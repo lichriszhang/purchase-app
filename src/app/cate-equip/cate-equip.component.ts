@@ -12,13 +12,6 @@ export class CateEquipComponent implements OnInit {
   cateEquips: any
   isShow: any
   constructor(public equipservice: EquipService, public routeInfo: ActivatedRoute) {
-    this.routeInfo.params.subscribe((param: Params) => {
-      if(param["cateId"]) {
-        this.getEquipByCategory()
-      } else{
-        this.getEquipByName();
-      }
-    })
   }
 
   ngOnInit() {
@@ -31,23 +24,23 @@ export class CateEquipComponent implements OnInit {
     })
   }
   getEquipByCategory() {
-    setTimeout(() => {
       this.routeInfo.params.subscribe((param: Params) => {
-        this.cateEquips = this.equipservice.getEquipByCategory(param["cateId"])
-        if(this.cateEquips == undefined || this.cateEquips == null || this.cateEquips.length<1) {
-          this.cateEquips = null
-        }
+        this.equipservice.getEquipByCategory(param["cateId"]).subscribe((data) => {
+          this.cateEquips = data
+          if(this.cateEquips == undefined || this.cateEquips == null || this.cateEquips.length<1) {
+            this.cateEquips = null
+          }
+        })
       })
-    }, 100);
   }
   getEquipByName() {
-    setTimeout(() => {
       this.routeInfo.params.subscribe((param: Params) => {
-        this.cateEquips = this.equipservice.getEquipByName(param["equipName"])
-        if(this.cateEquips == undefined || this.cateEquips == null || this.cateEquips.length<1) {
-          this.cateEquips = null
-        }
+        this.equipservice.getEquipByName(param["equipName"]).subscribe((data) => {
+          this.cateEquips = data
+          if(this.cateEquips == undefined || this.cateEquips == null || this.cateEquips.length<1) {
+            this.cateEquips = null
+          }
+        })
       })
-    }, 100);
   }
 }

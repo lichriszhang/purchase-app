@@ -9,27 +9,31 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class EquipComponent implements OnInit {
 
-  equip: any
-  cateEquips: any
+  equip: any;
+  cateEquips: any;
 
   constructor(public equipservice: EquipService) {
   }
 
   ngOnInit() {
-    console.log('调用了equip')
-    setTimeout(() => {
-      this.getAllEquip()
-    }, 200);
+    console.log('调用了equip');
+    this.getAllEquip();
   }
 
   getAllEquip() {
-    this.equip = this.equipservice.getAllEquip()
+    this.equipservice.getAllEquip().subscribe((data) => {
+      this.equip = data
+    })
+
   }
   removeEquip(equipId: string) {
-    let r = confirm('remove this equipment?')
+    let r = confirm('remove this equipment?');
     if (r == true) {
       this.equipservice.removeEquip(equipId)
-      location=location
+      location = location
     }
+  }
+  updateEquip(equipId: string) {
+    this.equipservice.getEuqipById(equipId)
   }
 }
