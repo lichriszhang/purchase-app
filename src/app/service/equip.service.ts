@@ -47,7 +47,7 @@ export class EquipService {
     return this.equipById
   }
 
-  addEquipment(equipment: any) {
+  addEquipment(equipment: any, file: any) {
     const param = new HttpParams()
     .set('equipname', equipment.equipname)
     .set('equiptext', equipment.equiptext)
@@ -55,6 +55,7 @@ export class EquipService {
     .set('equipmodel', equipment.equipmodel)
     .set('equipnum', equipment.equipnum)
     .set('equipcategory', equipment.equipcategory)
+    .set('file', file)
     const httpOptions = {
       'params': param
     }

@@ -13,13 +13,13 @@ export class EquipComponent implements OnInit {
   cateEquips: any
 
   constructor(public equipservice: EquipService) {
-    this.getAllEquip()
   }
 
   ngOnInit() {
+    console.log('调用了equip')
     setTimeout(() => {
       this.getAllEquip()
-    }, 100);
+    }, 200);
   }
 
   getAllEquip() {
@@ -32,7 +32,4 @@ export class EquipComponent implements OnInit {
       location=location
     }
   }
-
-
-
 }

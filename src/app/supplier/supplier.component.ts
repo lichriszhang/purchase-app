@@ -10,19 +10,17 @@ export class SupplierComponent implements OnInit {
 
   suppliers: any
   constructor(public supplierservice: SupplierService) {
-    this.suppliers = this.supplierservice.getAllSupplier()
-
   }
 
   ngOnInit() {
+    console.log('调用了supplier')
     setTimeout(() => {
       this.getAllSupplier()
-    }, 100);
+    }, 200);
   }
 
   getAllSupplier() {
     this.suppliers = this.supplierservice.getAllSupplier()
-    console.log(this.suppliers)
   }
   removeSupplier(supplierId: string) {
     let r = confirm('remove this supplier?')

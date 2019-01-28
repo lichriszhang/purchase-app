@@ -14,10 +14,12 @@ export class AppComponent {
   equipName: string
 
   constructor(public categoryservice: CategoryService, public equipservice: EquipService) {
-    this.category = this.categoryservice.getAllCategory()
   }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.getAllCategory()
+    }, 100);
   }
 
   getAllCategory() {

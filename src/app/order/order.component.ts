@@ -10,13 +10,13 @@ export class OrderComponent implements OnInit {
 
   orders: any
   constructor(public orderService: OrderService) {
-    this.getAllOrders()
   }
 
   ngOnInit() {
+    console.log('调用了order')
     setTimeout(() => {
       this.getAllOrders()
-    }, 100);
+    }, 200);
   }
 
   getAllOrders() {

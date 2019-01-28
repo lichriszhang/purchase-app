@@ -31,7 +31,7 @@ export class UploadComponent implements OnInit {
       alert('please input necessary value')
       return
     }
-    this.equipservice.addEquipment(this.equip)
+    this.equipservice.addEquipment(this.equip, this.file)
   }
 
 }

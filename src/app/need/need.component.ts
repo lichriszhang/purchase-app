@@ -13,13 +13,13 @@ export class NeedComponent implements OnInit {
   needDetail: any
   row: number
   constructor(public needService: NeedService, public routeInfo: ActivatedRoute) {
-    this.getAllNeeds()
   }
 
   ngOnInit() {
+    console.log('调用了Need')
     setTimeout(() => {
       this.getAllNeeds()
-    }, 100);
+    }, 200);
   }
 
   getAllNeeds() {
