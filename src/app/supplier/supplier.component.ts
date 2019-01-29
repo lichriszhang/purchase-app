@@ -44,4 +44,5 @@ export class SupplierComponent implements OnInit {
   addSupplier() {
     this.supplierservice.addSupplier(this.supplier);
   }
+
 }

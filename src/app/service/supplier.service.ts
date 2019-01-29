@@ -18,6 +18,14 @@ export class SupplierService {
       });
     });
   }
+
+  getSupplierById(supplierId: string) {
+    return new Observable((observe) => {
+      this.http.get('http://localhost:8080/supplier/' + supplierId).subscribe((data) => {
+        observe.next(data);
+      });
+    });
+  }
   removeSupplier(supplierId: string) {
     const param = new HttpParams()
     .set('sid', supplierId);
@@ -46,5 +54,9 @@ export class SupplierService {
     this.http.post('http://localhost:8080/supplier/add', {}, httpOptions).subscribe((data) => {
       console.log(data);
     });
+  }
+
+  updateSupplier(supplierId: string) {
+    this.getSupplierById(supplierId);
   }
 }

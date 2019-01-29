@@ -11,7 +11,7 @@
           <th>PHONE</th>
           <th>MAIL</th>
           <th>EQUIP</th>
-          <th [routerLink]="[ '/upload' ]" class="btn btn-outline-info" routerLinkActive="active" data-toggle="modal" data-target="#myModal1">Add Supplier
+          <th [routerLink]="[ '/supplier/upload' ]" class="btn btn-outline-info" routerLinkActive="active" data-toggle="modal" data-target="#myModal1">Add Supplier
           </th>
         </tr>
       </thead>
@@ -29,10 +29,10 @@
           <td>
               <div class="btn-group btn-group-sm">
                 <button type="button" class="btn btn-danger" (click)="removeSupplier(item.supplierid)" [routerLink]="[ '/supplier' ]">REMOVE</button><br>
-                <button type="button" class="btn btn-outline-info" [routerLink]="[ '/equip' ]">Update</button><br>
+                <button type="button" class="btn btn-outline-info" [routerLink]="[ '/supplier/update', item.supplierid ]" data-toggle="modal" data-target="#myModal1">Update</button><br>
               </div>
             </td>
-        </tr>      
+        </tr>
       </tbody>
     </table>
   </div>

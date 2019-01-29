@@ -26,7 +26,14 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'supplier', component: SupplierComponent
+    path: 'supplier', component: SupplierComponent, children: [
+      {
+        path: 'update/:supplierId', component: UploadComponent
+      },
+      {
+        path: 'upload', component: UploadComponent
+      }
+    ]
   },
   {
     path: 'need', component: NeedComponent, children: [
@@ -40,6 +47,9 @@ const routes: Routes = [
   },
   {
     path: 'upload', component: UploadComponent
+  },
+  {
+    path: '**', component: EquipComponent
   }
 ];
 
