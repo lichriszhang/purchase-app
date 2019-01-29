@@ -19,6 +19,9 @@ const routes: Routes = [
     path: 'equip', component: EquipComponent, children: [
       {
         path: 'update/:equipId', component: UploadComponent
+      },
+      {
+        path: 'upload', component: UploadComponent
       }
     ]
   },

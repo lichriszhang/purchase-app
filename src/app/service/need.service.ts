@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -6,20 +7,21 @@ import { HttpClient } from '@angular/common/http';
 })
 export class NeedService {
 
-  needs: any
-  needDetail: any
+  needs: any;
+  needDetail: any;
   constructor(public http: HttpClient) { }
- 
-  getAllNeeds() {
-    this.http.get('http://localhost:8080/needs/all').subscribe((data) => {
-      this.needs = data
-    })
-    return this.needs
+
+  getAllNeeds(): any {
+    return new Observable((observe) => {
+      this.http.get('http://localhost:8080/needs/all').subscribe((data) => {
+        observe.next(data);
+      });
+    });
   }
   getNeedDetail(needId: string) {
     this.http.get('http://localhost:8080/needs/' + needId).subscribe((data) => {
-      this.needDetail = data
+      this.needDetail = data;
     })
-    return this.needDetail
+    return this.needDetail;
   }
 }

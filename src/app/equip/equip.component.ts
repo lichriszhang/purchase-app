@@ -22,18 +22,17 @@ export class EquipComponent implements OnInit {
 
   getAllEquip() {
     this.equipservice.getAllEquip().subscribe((data) => {
-      this.equip = data
-    })
+      this.equip = data;
+    });
 
   }
   removeEquip(equipId: string) {
-    let r = confirm('remove this equipment?');
-    if (r == true) {
-      this.equipservice.removeEquip(equipId)
-      location = location
+    if (confirm('remove this equipment?')) {
+      this.equipservice.removeEquip(equipId);
+      location = location;
     }
   }
   updateEquip(equipId: string) {
-    this.equipservice.getEuqipById(equipId)
+    this.equipservice.getEuqipById(equipId);
   }
 }

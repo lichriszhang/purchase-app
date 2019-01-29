@@ -10,23 +10,23 @@ import { EquipService } from './service/equip.service';
 export class AppComponent {
   title = 'purchase-app';
 
-  category: any
-  equipName: string
+  category: any;
+  equipName: string;
 
   constructor(public categoryservice: CategoryService, public equipservice: EquipService) {
   }
 
   ngOnInit() {
-    setTimeout(() => {
-      this.getAllCategory()
-    }, 100);
+    this.getAllCategory();
   }
 
   getAllCategory() {
-    this.category = this.categoryservice.getAllCategory()
+    this.categoryservice.getAllCategory().subscribe((data) => {
+      this.category = data;
+    });
   }
 
   searchHandleClick() {
-    this.equipservice.getEquipByName(this.equipName)
+    this.equipservice.getEquipByName(this.equipName);
   }
 }

@@ -7,14 +7,15 @@ import { Observable } from 'rxjs';
 })
 export class CategoryService {
 
-  categoryResult: any
+  categoryResult: any;
   constructor(public http: HttpClient) { }
 
-   getAllCategory() {
-    this.http.get('http://localhost:8080/category/all').subscribe((data) => {
-      this.categoryResult =  data;
-    })
-    return this.categoryResult
+   getAllCategory(): any {
+     return new Observable((observe) => {
+      this.http.get('http://localhost:8080/category/all').subscribe((data) => {
+        observe.next(data);
+      });
+     });
   }
-  
+
 }

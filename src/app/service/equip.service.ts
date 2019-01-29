@@ -29,7 +29,7 @@ export class EquipService {
   getEquipByCategory(cateId: string): any {
     return new Observable((observe) => {
       this.http.get('http://localhost:8080/equip/category/' + cateId).subscribe((data) => {
-        observe.next(data)
+        observe.next(data);
       });
     })
   }
@@ -42,7 +42,7 @@ export class EquipService {
       };
       console.log(httpOptions);
       this.http.post('http://localhost:8080/equip/name', {}, httpOptions).subscribe((data) => {
-        observe.next(data)
+        observe.next(data);
       });
     })
   }

@@ -2,9 +2,9 @@ import { OrderService } from './../service/order.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector   : 'app-order',
+  selector: 'app-order',
   templateUrl: './order.component.html',
-  styleUrls  : ['./order.component.scss']
+  styleUrls: ['./order.component.scss']
 })
 export class OrderComponent implements OnInit {
 
@@ -13,14 +13,14 @@ export class OrderComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('调用了order')
-    setTimeout(() => {
-      this.getAllOrders()
-    }, 200);
+    console.log('调用了order');
+    this.getAllOrders();
   }
 
   getAllOrders() {
-      this.orders = this.orderService.getAllOrders()
+    this.orderService.getAllOrders().subscribe((data) => {
+      this.orders = data;
+    });
   }
 
 }

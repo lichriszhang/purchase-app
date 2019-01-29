@@ -16,14 +16,14 @@ export class NeedComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('调用了Need')
-    setTimeout(() => {
-      this.getAllNeeds()
-    }, 200);
+    console.log('调用了Need');
+    this.getAllNeeds();
   }
 
   getAllNeeds() {
-      this.needs = this.needService.getAllNeeds()
+    this.needService.getAllNeeds().subscribe((data) => {
+      this.needs = data;
+    });
   }
 
   getNeedDetail() {

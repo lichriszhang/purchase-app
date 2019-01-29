@@ -8,25 +8,40 @@ import { SupplierService } from '../service/supplier.service';
 })
 export class SupplierComponent implements OnInit {
 
-  suppliers: any
+  supplier: any = {
+    id: '',
+    name: '',
+    address: '',
+    contacts: '',
+    tele: '',
+    phone: '',
+    fax: '',
+    mail: '',
+    bank: '',
+    equipcate: '',
+  };
+
+  suppliers: any;
   constructor(public supplierservice: SupplierService) {
   }
 
   ngOnInit() {
-    console.log('调用了supplier')
-    setTimeout(() => {
-      this.getAllSupplier()
-    }, 200);
+    this.getAllSupplier()
   }
 
   getAllSupplier() {
-    this.suppliers = this.supplierservice.getAllSupplier()
+    this.supplierservice.getAllSupplier().subscribe((data) => {
+      this.suppliers = data;
+    });
   }
   removeSupplier(supplierId: string) {
-    let r = confirm('remove this supplier?')
-    if(r) {
-      this.supplierservice.removeSupplier(supplierId)
-      location=location
+    if (confirm('remove this supplier?')) {
+      this.supplierservice.removeSupplier(supplierId);
+      location = location;
     }
+  }
+
+  addSupplier() {
+    this.supplierservice.addSupplier(this.supplier);
   }
 }
