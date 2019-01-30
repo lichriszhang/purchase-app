@@ -26,7 +26,7 @@ export class SupplierComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getAllSupplier()
+    this.getAllSupplier();
   }
 
   getAllSupplier() {
@@ -45,4 +45,7 @@ export class SupplierComponent implements OnInit {
     this.supplierservice.addSupplier(this.supplier);
   }
 
+  updateSupplier(supplierId: string) {
+    this.supplierservice.updateSupplier(supplierId);
+  }
 }

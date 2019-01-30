@@ -1,3 +1,4 @@
+import { SupplierOptionComponent } from './supplier-option/supplier-option.component';
 import { UploadComponent } from './upload/upload.component';
 import { NeedDetailComponent } from './need-detail/need-detail.component';
 import { CateEquipComponent } from './cate-equip/cate-equip.component';
@@ -28,10 +29,10 @@ const routes: Routes = [
   {
     path: 'supplier', component: SupplierComponent, children: [
       {
-        path: 'update/:supplierId', component: UploadComponent
+        path: 'update/:supplierId', component: SupplierOptionComponent
       },
       {
-        path: 'upload', component: UploadComponent
+        path: 'upload', component: SupplierOptionComponent
       }
     ]
   },

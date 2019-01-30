@@ -18,6 +18,7 @@ import { NeedComponent } from './need/need.component';
 import { OrderComponent } from './order/order.component';
 import { CateEquipComponent } from './cate-equip/cate-equip.component';
 import { NeedDetailComponent } from './need-detail/need-detail.component';
+import { SupplierOptionComponent } from './supplier-option/supplier-option.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NeedDetailComponent } from './need-detail/need-detail.component';
     OrderComponent,
     CateEquipComponent,
     NeedDetailComponent,
-    UploadComponent
+    UploadComponent,
+    SupplierOptionComponent
   ],
   imports: [
     BrowserModule,

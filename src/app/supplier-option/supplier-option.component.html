@@ -1,0 +1,64 @@
+<div class="container">
+  <!-- 模态框 -->
+  <div class="modal fade" id="myModal1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <!-- 模态框头部 -->
+        <div class="modal-header">
+          <h4 class="modal-title">Add Supplier</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <!-- 模态框主体 -->
+        <div class="modal-body">
+          <form action="/supplier" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="equipName">Name:</label>
+              <input type="text" class="form-control btn-danger" id="name" name="name" [(ngModel)]="supplier.suppliername" placeholder="Enter SupplierName">
+            </div>
+            <div class="form-group">
+              <label for="specific">Address:</label>
+              <input type="text" class="form-control" id="address" name="address" [(ngModel)]="supplier.supplieradd" placeholder="Enter Address">
+            </div>
+            <div class="form-group">
+              <label for="model">Contacts:</label>
+              <input type="text" class="form-control" id="contacts" name="contacts" [(ngModel)]="supplier.suppliercontacter" placeholder="Enter Contacts">
+            </div>
+            <div class="form-group">
+              <label for="count">Telephone:</label>
+              <input type="text" class="form-control btn-danger" id="tele" name="tele" [(ngModel)]="supplier.suppliertele" placeholder="Enter Telephone">
+            </div>
+            <div class="form-group">
+              <label for="count">Phone:</label>
+              <input type="text" class="form-control" id="phone" name="phone" [(ngModel)]="supplier.supplierphone" placeholder="Enter Phone">
+            </div>
+            <div class="form-group">
+              <label for="count">Fax:</label>
+              <input type="text" class="form-control" id="fax" name="fax" [(ngModel)]="supplier.supplierfax" placeholder="Enter Fax">
+            </div>
+            <div class="form-group">
+              <label for="count">Mail:</label>
+              <input type="text" class="form-control" id="mail" name="mail" [(ngModel)]="supplier.suppliermail" placeholder="Enter Mail">
+            </div>
+            <div class="form-group">
+              <label for="count">Bank:</label>
+              <input type="text" class="form-control" id="bank" name="bank" [(ngModel)]="supplier.supplierbankaccount" placeholder="Enter Bank">
+            </div>
+            <div class="form-group">
+              <label for="equipClass">Class:</label>
+              <select class="form-control" id="equipClass" name="equipcategory" >
+                <option *ngFor="let item of allCategory">{{item.equipcategoryname}}
+                </option>
+              </select>
+            </div>
+            <!-- 模态框底部 -->
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary" data-dismiss="modal" [routerLink]="[ '/supplier' ]" (click)="addSupplier()">Submit</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

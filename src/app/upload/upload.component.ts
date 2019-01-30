@@ -19,26 +19,14 @@ export class UploadComponent implements OnInit {
     equipnum: 1,
     equipcategory: '01',
   };
-  supplier: any = {
-    id: '',
-    name: '',
-    address: '',
-    contacts: '',
-    tele: '',
-    phone: '',
-    fax: '',
-    mail: '',
-    bank: '',
-    equipcate: '01',
-  };
   file: any;
   allCategory: any;
 
 
   constructor(
-    public equipservice: EquipService, 
+    public equipservice: EquipService,
     public categoryservice: CategoryService,
-    public supplierService: SupplierService, 
+    public supplierService: SupplierService,
     public routeInfo: ActivatedRoute) { }
 
   ngOnInit() {
@@ -79,9 +67,4 @@ export class UploadComponent implements OnInit {
   }
 
 
-  addSupplier() {
-    console.log('add supplier');
-    console.log(this.supplier);
-    // this.supplierService.addSupplier(this.supplier);
-  }
 }

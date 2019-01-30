@@ -19,7 +19,8 @@ export class SupplierService {
     });
   }
 
-  getSupplierById(supplierId: string) {
+  getSupplierById(supplierId: string): any {
+    console.log('要查询的supplierId为：' + supplierId);
     return new Observable((observe) => {
       this.http.get('http://localhost:8080/supplier/' + supplierId).subscribe((data) => {
         observe.next(data);
@@ -28,7 +29,7 @@ export class SupplierService {
   }
   removeSupplier(supplierId: string) {
     const param = new HttpParams()
-    .set('sid', supplierId);
+      .set('sid', supplierId);
     const httpOptions = {
       'params': param
     };
@@ -38,16 +39,16 @@ export class SupplierService {
   }
   addSupplier(supplier: any) {
     const param = new HttpParams()
-    .set('suppliername', supplier.name)
-    .set('supplieradd', supplier.address)
-    .set('suppliercontacter', supplier.contacts)
-    .set('suppliertele', supplier.tele)
-    .set('supplierphone', supplier.phone)
-    .set('supplierfax', supplier.fax)
-    .set('suppliermail', supplier.mail)
-    .set('supplierzipcode', supplier.zipcode)
-    .set('supplierbankaccount', supplier.bank)
-    .set('supplierequipcategory', supplier.equipcate);
+      .set('suppliername', supplier.name)
+      .set('supplieradd', supplier.address)
+      .set('suppliercontacter', supplier.contacts)
+      .set('suppliertele', supplier.tele)
+      .set('supplierphone', supplier.phone)
+      .set('supplierfax', supplier.fax)
+      .set('suppliermail', supplier.mail)
+      .set('supplierzipcode', supplier.zipcode)
+      .set('supplierbankaccount', supplier.bank)
+      .set('supplierequipcategory', supplier.equipcate);
     const httpOptions = {
       'params': param
     };
@@ -56,7 +57,24 @@ export class SupplierService {
     });
   }
 
-  updateSupplier(supplierId: string) {
-    this.getSupplierById(supplierId);
+  updateSupplier(supplier: any) {
+    const param = new HttpParams()
+      .set('supplierid', supplier.id)
+      .set('suppliername', supplier.name)
+      .set('supplieradd', supplier.address)
+      .set('suppliercontacter', supplier.contacts)
+      .set('suppliertele', supplier.tele)
+      .set('supplierphone', supplier.phone)
+      .set('supplierfax', supplier.fax)
+      .set('suppliermail', supplier.mail)
+      .set('supplierzipcode', supplier.zipcode)
+      .set('supplierbankaccount', supplier.bank)
+      .set('supplierequipcategory', supplier.equipcate);
+    const httpOptions = {
+      'params': param
+    };
+    this.http.post('http://localhost:8080/equip/update', {}, httpOptions).subscribe((data) => {
+      console.log(data);
+    });
   }
 }
