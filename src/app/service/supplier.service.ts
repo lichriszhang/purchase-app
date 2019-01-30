@@ -59,21 +59,21 @@ export class SupplierService {
 
   updateSupplier(supplier: any) {
     const param = new HttpParams()
-      .set('supplierid', supplier.id)
-      .set('suppliername', supplier.name)
-      .set('supplieradd', supplier.address)
-      .set('suppliercontacter', supplier.contacts)
-      .set('suppliertele', supplier.tele)
-      .set('supplierphone', supplier.phone)
-      .set('supplierfax', supplier.fax)
-      .set('suppliermail', supplier.mail)
-      .set('supplierzipcode', supplier.zipcode)
-      .set('supplierbankaccount', supplier.bank)
-      .set('supplierequipcategory', supplier.equipcate);
+      .set('supplierid', supplier.supplierid)
+      .set('suppliername', supplier.suppliername)
+      .set('supplieradd', supplier.supplieradd)
+      .set('suppliercontacter', supplier.suppliercontacter)
+      .set('suppliertele', supplier.suppliertele)
+      .set('supplierphone', supplier.supplierphone)
+      .set('supplierfax', supplier.supplierfax)
+      .set('suppliermail', supplier.suppliermail)
+      .set('supplierzipcode', supplier.supplierzipcode)
+      .set('supplierbankaccount', supplier.supplierbankaccount)
+      .set('supplierequipcategory', supplier.supplierequipcategory);
     const httpOptions = {
       'params': param
     };
-    this.http.post('http://localhost:8080/equip/update', {}, httpOptions).subscribe((data) => {
+    this.http.post('http://localhost:8080/supplier/update', {}, httpOptions).subscribe((data) => {
       console.log(data);
     });
   }
